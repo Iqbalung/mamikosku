@@ -21,5 +21,8 @@ Route::prefix('v1')->group(function () {
     Route::name('user/registration/{id}')->put('user/registration/{id}', 'Auth\RegisterController@update');
     Route::name('user/registration/{id}')->delete('user/registration/{id}', 'Auth\RegisterController@delete');
     Route::name('user/registration/{id}')->get('user/registration/{id}', 'Auth\RegisterController@find');
+    Route::name('user/verification/{id}')->put('user/verification/{id}', 'Auth\RegisterController@verification');
 
+    //Registration
+    Route::name('login')->post('login', 'Auth\LoginController@authenticate');
 });

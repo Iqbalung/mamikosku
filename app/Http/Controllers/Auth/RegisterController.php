@@ -9,6 +9,7 @@ use App\Http\Controllers\BaseController;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Infrastructurs\Repositories\RegisterRepository;
+use App\Http\Infrastructurs\Repositories\UserRepository;
 
 class RegisterController extends Controller
 {
@@ -29,7 +30,7 @@ class RegisterController extends Controller
         
         $rules = [
             "user_fullname" => "required",
-            "user_email" => "required|email|unique:users,user_email",
+            "user_email" => "required|email|unique:users,email",
             "user_password" => "required",
             "role" => "required|array"
         ];
@@ -47,7 +48,7 @@ class RegisterController extends Controller
 
         $data = [
             "user_email" => $input["user_email"], 
-            "user_password" => $input["user_password"], 
+            "user_password" => Hash::make($input["user_password"]), 
             "user_fullname" => $input["user_fullname"], 
             "register_activation_code" => get_uuid(), 
             "user_role" => $input["role"],
@@ -142,6 +143,35 @@ class RegisterController extends Controller
         }
 
         return renderResponse($response["collection"], 200);
+       
+    }
+
+    protected function verification($id)
+    {
+        $registerRepo = new RegisterRepository();
+        $userRepo = new UserRepository();
+
+        $registration = $registerRepo->findById($id);
+
+        if($registration["status"]){
+            $registration['collection']->makeVisible(['user_password']);
+            $reg = $registration['collection']->toArray();
+            $user = [
+                'email' => $reg['user_email'],
+                'password' => $reg['user_password'],
+                'fullname'=> $reg['user_fullname'],
+            ];
+
+            $user = $userRepo->create($user);
+        }
+
+
+        if (!$registration["status"]) {
+            $registration = ["message" => $response["message"]];
+            return renderResponse($registration, 404);
+        }
+
+        return renderResponse($registration["collection"], 200);
        
     }
 
