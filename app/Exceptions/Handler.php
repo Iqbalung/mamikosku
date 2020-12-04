@@ -94,7 +94,8 @@ class Handler extends ExceptionHandler
 
         $response = [
             'status' => FALSE,
-            'message' => config('mamikos.message.route_not_found')
+            'message' => $exception->getMessage(),
+            'exception' => $TraceException
         ];
         // return parent::render($request, $exception);
         return renderResponse($response, 404);
