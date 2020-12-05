@@ -111,6 +111,50 @@ class KostTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function test_get_kost_location(){
+        $body = [];
+        $header['Accept'] = "application/json";
+        $header['Authorization'] = "Bearer ".$GLOBALS['l_premium']['token'];
+        $response = $this->get(url("/api/v1/kost?location=".$GLOBALS['v_premium']['location']), $header);
+        $GLOBALS['credit_premium'] = json_decode($response->content(),true);
+        if(empty($GLOBALS['credit_premium']['data']));{
+            $response->assertOK();
+        }
+    }
+
+    public function test_get_kost_name(){
+        $body = [];
+        $header['Accept'] = "application/json";
+        $header['Authorization'] = "Bearer ".$GLOBALS['l_premium']['token'];
+        $response = $this->get(url("/api/v1/kost?name_kost=".$GLOBALS['v_premium']['name_kost']), $header);
+        $GLOBALS['credit_premium'] = json_decode($response->content(),true);
+        if(empty($GLOBALS['credit_premium']['data']));{
+            $response->assertOK();
+        }
+    }
+
+    public function test_get_kost_price(){
+        $body = [];
+        $header['Accept'] = "application/json";
+        $header['Authorization'] = "Bearer ".$GLOBALS['l_premium']['token'];
+        $response = $this->get(url("/api/v1/kost?price=".$GLOBALS['v_premium']['name_kost']), $header);
+        $GLOBALS['credit_premium'] = json_decode($response->content(),true);
+        if(empty($GLOBALS['credit_premium']['data']));{
+            $response->assertOK();
+        }
+    }
+
+    public function test_get_kost_price_sort(){
+        $body = [];
+        $header['Accept'] = "application/json";
+        $header['Authorization'] = "Bearer ".$GLOBALS['l_premium']['token'];
+        $response = $this->get(url("/api/v1/kost?sort_by=price&sort_order=desc"), $header);
+        $GLOBALS['credit_premium'] = json_decode($response->content(),true);
+        if(empty($GLOBALS['credit_premium']['data']));{
+            $response->assertOK();
+        }
+    }
+
     public function test_update_credit(){
         $body = [
             "name_kost" => $this->faker->company,
