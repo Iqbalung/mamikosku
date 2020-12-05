@@ -177,7 +177,7 @@ class KostTest extends TestCase
         $header['Accept'] = "application/json";
         $body = [];
         $header['Authorization'] = "Bearer ".$GLOBALS['l_premium']['token'];
-        $response = $this->delete(url("/api/v1/credit/".$GLOBALS['v_premium']['kost_id']),$body, $header);
+        $response = $this->delete(url("/api/v1/kost/".$GLOBALS['v_premium']['kost_id']),$body, $header);
         $response->assertStatus(200);
     }
 
