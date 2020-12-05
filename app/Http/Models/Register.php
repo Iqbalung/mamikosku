@@ -12,16 +12,17 @@ class Register extends Eloquent
 
 	use SoftDeletes;
 
-    protected $primaryKey = 'register_id';
+    protected $primaryKey = 'register_activation_code';
     protected $collection = 'registers';
     protected $fillable = [
     	'user_email',
         'user_password',
         'user_fullname',
         'register_activation_code',
+        'user_role',
 
     ];
-    protected $hidden = [ 'created_at' ,'updated_at','user_password','register_activation_code'];
+    protected $hidden = [ 'created_at' ,'updated_at','user_password','register_activation_code','deleted_at'];
 
 
 

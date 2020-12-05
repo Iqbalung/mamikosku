@@ -19,7 +19,9 @@ class Credit extends Eloquent
         'description',
         'created_at',
         'updated_at',
-        'type'
+        'type',
+        'id',
+        'user_id'
     ];
     protected $hidden = ['status'];
 
