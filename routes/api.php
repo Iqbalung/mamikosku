@@ -41,11 +41,12 @@ Route::prefix('v1')->group(function () {
         Route::name('credit')->get('credit', 'Service\CreditController@read');
         Route::name('credit/{id}')->delete('credit/{id}', 'Service\CreditController@delete');
 
-        Route::name('credit')->post('credit', 'Service\CreditController@create');
-        Route::name('credit/{id}')->put('credit/{id}', 'Service\CreditController@update');
-        Route::name('credit/{id}')->get('credit/{id}', 'Service\CreditController@find');
-        Route::name('credit')->get('credit', 'Service\CreditController@read');
-        Route::name('credit/{id}')->delete('credit/{id}', 'Service\CreditController@delete');
+        Route::name('chat')->post('chat', 'Service\ChatController@create');
+        Route::name('chat/{id}')->put('chat/{id}', 'Service\ChatController@update');
+        Route::name('chat/{id}')->get('chat/{id}', 'Service\ChatController@find');
+        Route::name('chat')->get('chat', 'Service\ChatController@read');
+        Route::name('chat/{id}')->delete('chat/{id}', 'Service\ChatController@delete');
+        Route::name('chat/conversation/{id}')->delete('chat/conversation/{id}', 'Service\ChatController@conversation');
 
     });
 });
