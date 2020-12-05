@@ -32,9 +32,14 @@ Route::prefix('v1')->group(function () {
     
         Route::name('kost')->post('kost', 'Service\KostController@create');
         Route::name('kost/{id}')->put('kost/{id}', 'Service\KostController@update');
-        Route::name('kost/{id}')->get('kost/{id}', 'Service\KostController@update');
+        Route::name('kost/{id}')->get('kost/{id}', 'Service\KostController@find');
         Route::name('kost/{id}')->delete('kost/{id}', 'Service\KostController@delete');
 
+        Route::name('credit')->post('credit', 'Service\CreditController@create');
+        Route::name('credit/{id}')->put('credit/{id}', 'Service\CreditController@update');
+        Route::name('credit/{id}')->get('credit/{id}', 'Service\CreditController@find');
+        Route::name('credit')->get('credit', 'Service\CreditController@read');
+        Route::name('credit/{id}')->delete('credit/{id}', 'Service\CreditController@delete');
 
     });
 });
