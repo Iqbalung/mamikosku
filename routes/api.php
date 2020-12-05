@@ -25,4 +25,16 @@ Route::prefix('v1')->group(function () {
 
     //Registration
     Route::name('login')->post('login', 'Auth\LoginController@authenticate');
+    
+    Route::name('kost')->get('kost', 'Service\KostController@read');
+
+    Route::middleware(['auth:api'])->group(function () {
+    
+        Route::name('kost')->post('kost', 'Service\KostController@create');
+        Route::name('kost/{id}')->put('kost/{id}', 'Service\KostController@update');
+        Route::name('kost/{id}')->get('kost/{id}', 'Service\KostController@update');
+        Route::name('kost/{id}')->delete('kost/{id}', 'Service\KostController@delete');
+
+
+    });
 });
