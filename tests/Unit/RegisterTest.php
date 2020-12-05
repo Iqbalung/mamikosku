@@ -148,10 +148,8 @@ class RegisterTest extends TestCase
         $body = [];
         $header['Accept'] = "application/json";
         $header['Authorization'] = "Bearer ".$GLOBALS['l_regular']['token'];
-        print_r($GLOBALS['l_regular']['token']);
         $response = $this->get(url("/api/v1/credit"), $header);
         $GLOBALS['credit_regular'] = json_decode($response->content(),true);
-        print_r($GLOBALS['credit_regular']);
         if(!empty($GLOBALS['credit_regular']['data']));{
             $response->assertOK();
         }
