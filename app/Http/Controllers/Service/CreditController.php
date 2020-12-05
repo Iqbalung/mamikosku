@@ -9,6 +9,7 @@ use App\Http\Controllers\BaseController;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Infrastructurs\Repositories\CreditRepository;
+use Illuminate\Support\Facades\Auth;
 
 class CreditController extends Controller
 {
@@ -18,8 +19,15 @@ class CreditController extends Controller
      *
      * @return void
      */
+
+    protected $user;
+
     public function __construct(Request $request)
     {
+         $this->middleware(function ($request, $next) {
+            $this->user = Auth::user();
+            return $next($request);
+        });
 
     }
 
@@ -42,7 +50,7 @@ class CreditController extends Controller
             return renderResponse($response, 400);
         }
 
-        $creditRepo = new CreditRepository();
+        $creditRepo = new CreditRepository($this->user);
 
         $registerCreate = $creditRepo->create($input);
         
@@ -74,7 +82,7 @@ class CreditController extends Controller
             return renderResponse($response, 400);
         }
 
-        $creditRepo = new CreditRepository();
+        $creditRepo = new CreditRepository($this->user);
 
         $response = $creditRepo->update($input,$id);
         
@@ -89,7 +97,7 @@ class CreditController extends Controller
 
     protected function delete(Request $request,$id)
     {
-        $creditRepo = new CreditRepository();
+        $creditRepo = new CreditRepository($this->user);
 
         $response = $creditRepo->delete($id);
         
@@ -104,7 +112,7 @@ class CreditController extends Controller
 
     protected function read(Request $request)
     {
-        $creditRepo = new CreditRepository();
+        $creditRepo = new CreditRepository($this->user);
 
         $input = $request->input();
 
@@ -123,7 +131,7 @@ class CreditController extends Controller
 
     protected function find($id)
     {
-        $creditRepo = new CreditRepository();
+        $creditRepo = new CreditRepository($this->user);
 
         $response = $creditRepo->findById($id);
 

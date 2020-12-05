@@ -186,7 +186,7 @@ class RegisterController extends Controller
 
         if($registration["status"]){
             $registration['collection']->makeVisible(['user_password']);
-            $reg = $registration['collection']->toArray();
+            $reg = $registration['collection']->getAttributes();
             $user = [
                 'email' => $reg['user_email'],
                 'password' => $reg['user_password'],
@@ -207,15 +207,16 @@ class RegisterController extends Controller
             $user = $userRepo->create($user);
 
             if($user['status']){
-                $user = $user['collection']->toArray();
+                $user = $user['collection']->getAttributes();
+                if(!empty($user['credit'])){
+                    $credit = [
+                        'amount' => $user['credit'],
+                        'user_id' => $user['id'],
+                        'description' => "Bonus Registration for ".$user['role'],
+                    ];
 
-                $credit = [
-                    'amount' => $user['credit'],
-                    'user_id' => $user['id'],
-                    'description' => "Bonus Registration for ".$user['role'],
-                ];
-
-                $credit = $creditRepo->create($credit);
+                    $credit = $creditRepo->create($credit);
+                }
             }
         }
 

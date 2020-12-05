@@ -22,7 +22,7 @@ class Register extends Eloquent
         'user_role',
 
     ];
-    protected $hidden = [ 'created_at' ,'updated_at','user_password','register_activation_code','deleted_at'];
+    protected $hidden = [ 'created_at' ,'updated_at','user_password','deleted_at'];
 
 
 

@@ -12,10 +12,11 @@ class CreditRepository implements RepositoryInterface
     public $primaryKey;
     public $orderBy;    
 
-    public function __construct()
+    public function __construct($user=[])
     {
-        $register = new Credit();
-        $this->primaryKey = $register->getKeyName();     
+        $credit = new Credit();
+        $this->primaryKey = $credit->getKeyName();
+        $this->user = $user;     
     }
 
     public function create($data)
@@ -23,6 +24,9 @@ class CreditRepository implements RepositoryInterface
         try {
 
             $model = new Credit();
+            if(empty($data['user_id'])){
+                $data['user_id'] = $this->user->id;
+            }
             $res = Credit::create($data);
             $response['status'] = true;
             $response['property'] = [
@@ -46,6 +50,7 @@ class CreditRepository implements RepositoryInterface
     {
        
         $model = new Credit();
+        $data['user_id'] = $this->user->id;
         $find = Credit::where($this->primaryKey,"=",$id)->first();
         
         try {
@@ -88,6 +93,7 @@ class CreditRepository implements RepositoryInterface
         $response["status"] = false;
 
         $model = new Credit();
+        $data['user_id'] = $this->user->id;
         $primaryKey = $model->getKeyName(); 
 
         try {
@@ -131,6 +137,8 @@ class CreditRepository implements RepositoryInterface
             $data->whereIn("id", $id);
         }
 
+        $data->where('user_id',$this->user->id);
+
         if(is_array($search) AND !empty($search)){
             $data->where(function($query) use ($search){
                 $i = 0;
@@ -156,9 +164,9 @@ class CreditRepository implements RepositoryInterface
     {
         if (!$limit) {
             $data = Credit::limit($limit)->orderBy($this->orderBy[0],$this->orderBy[1])
-            ->get()->toArray();
+            ->where('user_id',$this->user->id)->get()->toArray();
         } else {
-            $data = Credit::orderBy($this->orderBy[0],$this->orderBy[1])->get()->toArray();
+            $data = Credit::orderBy($this->orderBy[0],$this->orderBy[1])->where('user_id',$this->user->id)->get()->toArray();
         }
 
         $response["status"] = true;
@@ -170,7 +178,7 @@ class CreditRepository implements RepositoryInterface
 
     public function findById($id)
     {
-        $res = Credit::where($this->primaryKey,"=",$id)->first();
+        $res = Credit::where($this->primaryKey,"=",$id)->where('user_id',$this->user->id)->first();
 
         if (!$res) {
             $response['status'] = false;
