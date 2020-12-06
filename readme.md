@@ -55,3 +55,11 @@ Free form search queries can be made, for example, works that include `renear` a
 For show Full API Documentation Please follow this link
     
 https://mamikosku.docs.apiary.io/#
+
+
+Instalation
+
+- Clone Code
+- Restore DB in code file mamikos to mysql
+- Setup Env
+- Run server in artisan
