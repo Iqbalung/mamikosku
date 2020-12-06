@@ -9,6 +9,7 @@ use App\Http\Controllers\BaseController;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Infrastructurs\Repositories\KostRepository;
+use Illuminate\Support\Facades\Auth;
 
 class KostController extends Controller
 {
@@ -20,7 +21,10 @@ class KostController extends Controller
      */
     public function __construct(Request $request)
     {
-
+        $this->middleware(function ($request, $next) {
+            $this->user = Auth::user();
+            return $next($request);
+        });
     }
 
     protected function create(Request $request)
@@ -45,6 +49,8 @@ class KostController extends Controller
         }
 
         $kostRepo = new KostRepository();
+
+        $input['owner_user_id'] = $this->user->id;
 
         $response = $kostRepo->create($input);
         
@@ -78,6 +84,8 @@ class KostController extends Controller
 
         $kostRepo = new KostRepository();
 
+        $input['owner_user_id'] = $this->user->id;
+
         $response = $kostRepo->update($input,$id);
         
         if (!$response["status"]) {
@@ -109,6 +117,25 @@ class KostController extends Controller
         $kostRepo = new KostRepository();
 
         $input = $request->input();
+
+        $response = $kostRepo->getData($input);
+        
+        if (!$response["status"]) {
+            $response = ["message" => $response["message"]];
+            return renderResponse($response, 400);
+        }
+
+        return renderResponse($response["collection"], 200);
+
+    }
+
+    protected function read_own(Request $request,$id)
+    {
+        $kostRepo = new KostRepository();
+
+        $input = $request->input();
+
+        $input['owner_user_id'] = $id;
 
         $response = $kostRepo->getData($input);
         

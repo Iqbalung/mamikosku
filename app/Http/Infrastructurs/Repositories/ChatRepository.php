@@ -118,6 +118,13 @@ class ChatRepository implements RepositoryInterface
         $sortOrder = ifunsetempty($query_string,"sort_order","desc");
         $id = ifunsetempty($query_string,"id",null);
         $search_keywords = ifunsetempty($query_string,"q",null);
+
+        foreach ($model->getFillable() as $key => $value) {
+            if(!empty($query_string[$value])){
+                $data->where($value, $query_string[$value]);
+            }
+        }
+
         $search = ($search_keywords != null) ? [
             ifunsetempty($query_string,"fields","fullname") => $search_keywords,
             ifunsetempty($query_string,"fields","location_code") => $search_keywords,

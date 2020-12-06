@@ -113,22 +113,35 @@ class KostRepository implements RepositoryInterface
 
     public function getData($query_string = array())
     {
+        $model = new Kost();
+
         $limit = ifunsetempty($query_string,"limit",config("mamikos.default_limit"));
         $sortBy = ifunsetempty($query_string,"sort_by","created_at");        
         $sortOrder = ifunsetempty($query_string,"sort_order","desc");
-        $id = ifunsetempty($query_string,"id",null);
+        $id = ifunsetempty($query_string,"kost_id",null);
         $search_keywords = ifunsetempty($query_string,"q",null);
+
+
         $search = ($search_keywords != null) ? [
-            ifunsetempty($query_string,"fields","fullname") => $search_keywords,
-            ifunsetempty($query_string,"fields","location_code") => $search_keywords,
-            ifunsetempty($query_string,"fields","location_phone") => $search_keywords,
-            ifunsetempty($query_string,"fields","location_address") => $search_keywords 
+            ifunsetempty($query_string,"fields","location") => $search_keywords,
+            ifunsetempty($query_string,"fields","address") => $search_keywords,
+            ifunsetempty($query_string,"fields","name_kost") => $search_keywords 
         ] : null ;
         
         $data = Kost::orderBy($sortBy,$sortOrder);
+        
+        foreach ($model->getFillable() as $key => $value) {
+            if(!empty($query_string[$value])){
+                $data->where($value, $query_string[$value]);
+            }
+        }
 
         if(!empty($id)){
-            $data->whereIn("id", $id);
+            $data->whereIn("kost_id", $id);
+        }
+
+        if(!empty($query_string['owner_user_id'])){
+            $data->where("owner_user_id", $query_string["owner_user_id"]);
         }
 
         if(is_array($search) AND !empty($search)){
