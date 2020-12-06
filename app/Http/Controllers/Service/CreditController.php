@@ -144,7 +144,7 @@ class CreditController extends Controller
        
     }
 
-    protected function find($id)
+    protected function resetCredit($id)
     {
         $creditRepo = new CreditRepository($this->user);
 

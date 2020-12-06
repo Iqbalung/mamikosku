@@ -199,8 +199,8 @@ class CreditRepository implements RepositoryInterface
     public function resetMonthly($id)
     {
 
-        $res = User::->where('role','premium')->update('credit',40);
-        $res = User::->where('role','reguler')->update('credit',20);
+        $res = User::where('role','premium')->update(['credit'=>40]);
+        $res = User::where('role','reguler')->update(['credit'=>20]);
 
         $response["status"] = true;
         $response["property"] = null;

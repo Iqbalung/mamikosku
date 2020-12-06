@@ -184,6 +184,7 @@ class KostRepository implements RepositoryInterface
     public function findById($id)
     {
         $res = Kost::where($this->primaryKey,"=",$id)->first();
+        Kost::where($this->primaryKey,"=",$id)->update(["hits"=>$res['hits']+1]);
 
         if (!$res) {
             $response['status'] = false;

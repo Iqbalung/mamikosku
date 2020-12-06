@@ -23,6 +23,10 @@ class Kost extends Eloquent
         'owner_user_id',
         'status',
         'category',
+        'hits',
+        'location_city',
+        'location_village',
+        'location_district',
 
     ];
     protected $hidden = [ 'created_at' ,'updated_at'];

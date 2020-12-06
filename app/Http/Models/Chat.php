@@ -17,6 +17,7 @@ class Chat extends Eloquent
     protected $fillable = [
     	'owner_user_id',
         'consumer_user_id',
+        'kost_id',
         'text',
         'created_at',
         'updated_at'

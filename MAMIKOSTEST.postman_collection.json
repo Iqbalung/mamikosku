@@ -1,0 +1,907 @@
+{
+	"info": {
+		"_postman_id": "f9eaf383-0c8d-4a0a-be5d-428914b13ddc",
+		"name": "MAMIKOSTEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_fullname\": \"iqbal\",\r\n    \"user_email\": \"iqbalung3@gmail.com\",\r\n    \"user_password\": \"password\",\r\n    \"user_role\": \"premium\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/user/register",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"register"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_email\": \"iqbalung@gmail.com\",\r\n    \"user_fullname\": \"iqbal\",\r\n    \"register_id\": 28\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/user/register/28",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"register",
+								"28"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_email\": \"iqbalung@gmail.com\",\r\n    \"user_fullname\": \"iqbal\",\r\n    \"register_id\": 28\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/user/register",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"register"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "GET DETAIL",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_email\": \"iqbalung@gmail.com\",\r\n    \"user_fullname\": \"iqbal\",\r\n    \"register_id\": 28\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/user/register/28",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"register",
+								"28"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_email\": \"iqbalung@gmail.com\",\r\n    \"user_fullname\": \"iqbal\",\r\n    \"register_id\": 28\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/user/register/28",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"register",
+								"28"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "VERIFICATION",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_email\": \"iqbalung@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/user/verification/842692e2-404a-4903-832c-39873e6c32ce",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"verification",
+								"842692e2-404a-4903-832c-39873e6c32ce"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"iqbalung@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/login",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Kosts",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{xauth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/ecmascript",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name_kost\": \"\",\r\n    \"location\": \"\",\r\n    \"price\": \"\",\r\n    \"lat\": \"\",\r\n    \"lon\": \"\",\r\n    \"status\": \"\",\r\n    \"category\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/kost",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kost"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name_kost\": \"ADINDA1\",\r\n    \"location\": \"JAKARTA SELATA\",\r\n    \"price\": 150000,\r\n    \"lat\": null,\r\n    \"lon\": null,\r\n    \"status\": 1,\r\n    \"category\": \"A\",\r\n    \"address\": \"A\",\r\n    \"kost_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/kost/1",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kost",
+								"1"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/kost",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kost"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "GET DETAIL",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_email\": \"iqbalung@gmail.com\",\r\n    \"user_fullname\": \"iqbal\",\r\n    \"register_id\": 28\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/kost/28",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kost",
+								"28"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_email\": \"iqbalung@gmail.com\",\r\n    \"user_fullname\": \"iqbal\",\r\n    \"register_id\": 28\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/kost/1",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kost",
+								"1"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "GET OWN",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_email\": \"iqbalung@gmail.com\",\r\n    \"user_fullname\": \"iqbal\",\r\n    \"register_id\": 28\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/kost/own/16",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"kost",
+								"own",
+								"16"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Credit",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 10000,\r\n    \"description\": \"x\",\r\n    \"type\": \"x\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/credit",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"credit"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 10000,\r\n    \"description\": \"x\",\r\n    \"type\": \"x\",\r\n    \"updated_at\": \"2020-12-05 00:28:53\",\r\n    \"created_at\": \"2020-12-05 00:28:53\",\r\n    \"id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/credit/1",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"credit",
+								"1"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/credit",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"credit"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "GET DETAIL",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_email\": \"iqbalung@gmail.com\",\r\n    \"user_fullname\": \"iqbal\",\r\n    \"register_id\": 28\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/credit/1",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"credit",
+								"1"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/credit/1",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"credit",
+								"1"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"mau nanya neng?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/chat",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"chat"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 10000,\r\n    \"description\": \"x\",\r\n    \"type\": \"x\",\r\n    \"updated_at\": \"2020-12-05 00:28:53\",\r\n    \"created_at\": \"2020-12-05 00:28:53\",\r\n    \"id\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/credit/1",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"credit",
+								"1"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_email\": \"iqbalung@gmail.com\",\r\n    \"user_fullname\": \"iqbal\",\r\n    \"register_id\": 28\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/credit",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"credit"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "GET DETAIL",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_email\": \"iqbalung@gmail.com\",\r\n    \"user_fullname\": \"iqbal\",\r\n    \"register_id\": 28\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/credit/1",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"credit",
+								"1"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/api/v1/credit/1",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"credit",
+								"1"
+							]
+						},
+						"description": "This API is used to create a new User Registration for an existing User. If the User has already created their global account but is now creating an account for an Application, this is the API you will use to create the new account. You must specify the User Id being registered on the URI. The Id of the Application the User is registering for is sent in the request body."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
