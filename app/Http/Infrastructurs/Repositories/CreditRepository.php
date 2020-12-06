@@ -4,6 +4,7 @@ namespace App\Http\Infrastructurs\Repositories;
 
 use App\Http\Infrastructurs\Interfaces\RepositoryInterface;
 use App\Http\Models\Credit;
+use App\Http\Models\User;
 use \Validator;
 use Illuminate\Support\Arr;
 
@@ -187,6 +188,19 @@ class CreditRepository implements RepositoryInterface
 
             return $response;
         }
+
+        $response["status"] = true;
+        $response["property"] = null;
+        $response["collection"] = $res;
+
+        return $response;
+    }
+
+    public function resetMonthly($id)
+    {
+
+        $res = User::->where('role','premium')->update('credit',40);
+        $res = User::->where('role','reguler')->update('credit',20);
 
         $response["status"] = true;
         $response["property"] = null;

@@ -144,4 +144,19 @@ class CreditController extends Controller
        
     }
 
+    protected function find($id)
+    {
+        $creditRepo = new CreditRepository($this->user);
+
+        $response = $creditRepo->resetMonthly($id);
+
+        if (!$response["status"]) {
+            $response = ["message" => $response["message"]];
+            return renderResponse($response, 404);
+        }
+
+        return renderResponse($response["collection"], 200);
+       
+    }
+
 }
