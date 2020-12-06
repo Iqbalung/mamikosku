@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->call('\App\Http\Controllers\Service\CreditController@resetCredit')->monthlyOn(1, '00:01'); 
+        $schedule->call('\App\Http\Controllers\Service\CreditController@resetCredit')->monthly(); 
     }
 
     /**
