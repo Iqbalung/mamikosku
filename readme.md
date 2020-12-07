@@ -61,5 +61,8 @@ Instalation
 
 - Clone Code
 - Restore DB in code file mamikos to mysql
-- Setup Env
-- Run server in artisan
+- Setup Env  to your deb mysql
+- compsoser install
+- php artisan passport:install
+- php artisan key:generate
+- php artisan serve
