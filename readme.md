@@ -49,7 +49,7 @@ Parameters can be used to query, filter and control the results returned by the 
 
 Free form search queries can be made, for example, works that include `renear` and `ontologies`:
 
-    kost?query=ADINDA2
+    kost?q=ADINDA2
 
 For show Full API Documentation Please follow this link
     
