@@ -65,3 +65,4 @@ Instalation
 - php artisan passport:install
 - php artisan key:generate
 - php artisan serve
+- php artisan schedule:run >> /dev/null 2>&1
