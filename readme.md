@@ -35,11 +35,10 @@ Parameters can be used to query, filter and control the results returned by the 
 | parameter                    | description                 |
 |:-----------------------------|:----------------------------|
 | `q`                      | query terms |
-| `rows={#}`                   | results per page |
+| `limit={#}`                   | results per page |
 | `offset={#}` (max 10k)               | result offset (use `cursor` for larger `/works` result sets)  |
-| `sample={#}` (max 100)                | return random N results |
-| `sort={#}`                   | sort results by a certain field |
-| `order={#}`                  | set the sort order to `asc` or `desc` |
+| `sort_by={#}`                   | sort results by a certain field |
+| `sort_order={#}`                  | set the sort order to `asc` or `desc` |
 
 
 ### Example query using URI parameters
